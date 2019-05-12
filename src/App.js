@@ -15,9 +15,7 @@ class App extends React.Component {
 
   componentDidMount() {
     fetch(url).then(response => response.json()).then(data => {
-      console.log(data);
       let batchRowValues = data.valueRanges[0].values;
-
       const rows = [];
       for (let i = 1; i < batchRowValues.length; i++) {
         let rowObject = {};
@@ -26,13 +24,11 @@ class App extends React.Component {
         }
         rows.push(rowObject);
       }
-
       this.setState({ items: rows });
     });
 }
 
   render() {
-    console.log("STATE", this.state.items);
     return (
       <div className="App">
   
